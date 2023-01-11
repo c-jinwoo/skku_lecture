@@ -1,1 +1,0 @@
-IDX:0,ID:admin,PW:1234,NAME:jinwoo,AGE:20,TYPE:admin
