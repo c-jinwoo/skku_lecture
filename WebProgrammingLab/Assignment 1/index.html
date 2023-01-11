@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SKKU RESTRAURANT</title>
+    <style>
+      /* common */
+      html, body{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: serif;
+        letter-spacing: 1px;
+      }
+      ul, li{
+        list-style: none;
+      }
+      img{
+        width: 100%;
+        height: auto;
+      }
+      .pt50{
+        padding-top: 50px;
+      }
+      .pb50{
+        padding-bottom: 50px;
+      }
+      .mb20{
+        margin-bottom: 20px;
+      }
+      .ls-05{
+        letter-spacing: -0.5px;
+      }
+      .ls-1{
+        letter-spacing: -1px;
+      }
+      .center{
+        text-align: center;
+      }
+      .container{
+        position: relative;
+      }
+      .inner{
+        width: 20%;
+        margin: 0 auto;
+      }
+
+      /* navigation tab */
+      .navi ul{
+        overflow: hidden;
+      }
+      .navi li{
+        display: inline-block;
+        margin-left: 50px;
+      }
+      .navi li:first-child{
+        margin-left: 0;
+      }
+
+      /* section1 tab */
+      .section1 table{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .section1 table td{
+        color: #FFF;
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      /* section2 tab */
+      .section2 h2,
+      .section2 p{
+        font-weight: bold;
+      }
+
+      /* section3 tab */
+      .section3 img{
+        width: 50%;
+      }
+
+      /* section4 tab */
+      .section4 div.inner{
+        text-align: left;
+      }
+      .section4 span{
+        font-weight: bold;
+      }
+      .section4 input.iText{
+        width: 100%;
+      }
+      .section4 input.iSubmit{
+        width: 50px;
+      }
+      .section4 textarea{
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+
+      <!-- nav -->
+      <nav class="navi center">
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">GALLERY</a></li>
+          <li><a href="#">CONTACT US</a></li>
+        </ul>
+      </nav>
+
+      <!-- Section 1 -->
+      <section class="section1 pt50 pb50">
+        <div class="container center">
+          <img src="./img/bg_main.png" alt="bg_main">
+          <table>
+            <tr>
+              <td>SKKU RESTAURANT</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <hr><hr><hr>
+
+      <!-- Section 2 -->
+      <section class="section2 pt50 pb50">
+        <div class="container center">
+          <h1 class="ls-05">Welcome to SKKU RESTRAURANT</h1>
+          <div class="inner">
+            <img class="chef_img" src="./img/chef_img.png" alt="chef_img">
+          </div>
+          <p><b>Over the next twelve months we will feature, successively, four menus - or 'volumes' - each of which presents some of SKKU's unique dishes and the thinking behind them. By walking in SKKU's footsteps, you will discover for yourself the story of the restaurant, with all its ground-breaking orginality, experimentation and innovation.</b></p>
+          <img class="bg_offer" src="./img/bg_offer.png" alt="bg_offer">
+        </div>
+      </section>
+      <hr><hr><hr>
+
+      <!-- Section 3 -->
+      <section class="section3 pt50 pb50">
+        <div class="container center">
+          <h1>SPECIAL MENU</h1>
+          <table>
+            <tr>
+              <td>
+                <img src="./img/beef_steak_img.png" alt="beef_steak_img">
+              </td>
+              <td>
+                <img src="./img/exc_fish_img.png" alt="exc_fish_img">
+              </td>
+              <td>
+                <img src="./img/fish_soup_img.png" alt="fish_soup_img">
+              </td>
+            </tr>
+            <tr>
+              <td><b>BEEF STEAK</b></td>
+              <td><b>EXCLUSIVE FISH</b></td>
+              <td><b>BEEF STEAK</b></td>
+            </tr>
+            <tr>
+              <td><b>12,000₩</b></td>
+              <td><b>15,000₩</b></td>
+              <td><b>10,000₩</b></td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <hr><hr><hr>
+
+      <!-- Section 4 -->
+      <section class="section4 pt50 pb50">
+        <div class="container center">
+          <div class="inner">
+            <span>Name:</span>
+            <br>
+            <input type="text" name="" value="" class="iText mb20">
+            <br>
+            <span>Email:</span>
+            <br>
+            <input type="text" name="" value="" class="iText mb20">
+            <br>
+            <span>Message:</span>
+            <br>
+            <textarea name="name" rows="8" cols="80"></textarea>
+            <br>
+            <input type="submit" name="" value="Send" class="iSubmit">
+          </div>
+        </div>
+      </section>
+      <hr><hr><hr>
+
+      <!-- Footer -->
+      <footer class="section5 pt50 pb50">
+        <div class="container center">
+          <h3 class="ls-05"><b>CONTACT US</b></h3>
+          <p class="ls-05">PHONE-NO: 010-0000-0000</p>
+          <p class="ls-05">YOUTUBE: <a href="#">YOUTUBE CHANNEL</a></p>
+          <p class="ls-05">FACEBOOK: <a href="#">FACEBOOK PAGE</a></p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

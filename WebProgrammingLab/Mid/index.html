@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>SKKU ATM</title>
+		<link rel="stylesheet" href="./css/index.css">
+		<script type="text/javascript" src="./js/index.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Login Page -->
+			<section id="login_page" class="wrapper active">
+				<header class="header center">
+					<h1 class="title">SKKU ATM</h1>
+					<h3 class="subtitle ls-1">Enter your 16 digit account number or insert your card below:</h3>
+				</header>
+				<div class="input_wrapper inner">
+					<input id="acnt_input" type="password" placeholder="Enter Account Number" maxlength="16" readonly/>
+				</div>
+				<div class="btn_wrapper inner">
+					<button class="num">1</button>
+					<button class="num">2</button>
+					<button class="num">3</button>
+					<button class="num">4</button>
+					<button class="num">5</button>
+					<button class="num">6</button>
+					<button class="num">7</button>
+					<button class="num">8</button>
+					<button class="num">9</button>
+					<button class="enter">Enter</button>
+					<button class="num">0</button>
+					<button class="del">Del</button>
+				</div>
+			</section>
+			
+			<!-- Pin Page -->
+			<section id="pin_page" class="wrapper">
+				<header class="header center">
+					<h3 class="subtitle ls-1">Please enter your PIN:</h3>
+				</header>
+				<div class="input_wrapper inner">
+					<input id="pin_input" type="password" placeholder="Enter PIN" maxlength="4" readonly/>
+				</div>
+				<div class="btn_wrapper inner">
+					<button class="num">1</button>
+					<button class="num">2</button>
+					<button class="num">3</button>
+					<button class="num">4</button>
+					<button class="num">5</button>
+					<button class="num">6</button>
+					<button class="num">7</button>
+					<button class="num">8</button>
+					<button class="num">9</button>
+					<button class="enter">Enter</button>
+					<button class="num">0</button>
+					<button class="del">Del</button>
+				</div>
+				<div class="return_btn_wrapper">
+					<button class="return btn">Return Card</button>
+				</div>
+			</section>
+
+			<!-- Menu Page -->
+			<section id="menu_page" class="wrapper">
+				<header class="header center">
+					<h1 class="title">WELCOME TO SKKU BANK</h1>
+				</header>
+				<div class="menu_wrapper inner">
+					<button class="menu">Account Information</button>
+					<button class="menu">Withdraw Funds</button>
+					<button class="menu">Deposit Funds</button>
+					<button class="menu">Transfer</button>	
+				</div>
+				<div class="return_btn_wrapper">
+					<button class="return btn">Return Card</button>
+				</div>
+			</section>
+
+			<!-- Account Page -->
+			<section id="account_page" class="wrapper">
+				<header class="header center">
+					<!-- Append -->
+				</header>
+
+				<div class="table_wrapper">
+					<!-- Append -->
+				</div>
+
+				<div class="back_btn_wrapper">
+					<button class="back btn">Back</button>
+				</div>
+			</section>
+			
+			<!-- Withdraw Page -->
+			<section id="withdraw_page" class="wrapper">
+				<header class="header center">
+					<h3 class="subtitle ls-1">Enter the amount to withdraw</h3>
+				</header>
+				<div class="ql_title_wrapper">
+					<h3 class="subtitle ls-1">Quick Links</h3>
+					<h3 class="subtitle ls-1">Quick Links</h3>
+				</div>
+				<div class="amount_wrapper">
+					<div class="ql_wrapper">
+						<button class="ql btn">20</button>
+						<button class="ql btn">40</button>
+						<button class="ql btn">60</button>
+						<button class="ql btn">80</button>
+					</div>
+					<div class="ql_wrapper">
+						<img class="arrow up100" src="./img/uparrow100copy.png" alt="up100"/>
+						<img class="arrow up20" src="./img/uparrow20copy.png" alt="up20"/>
+						<img class="arrow dw20" src="./img/downarrow20copy.png" alt="dw20"/>
+						<img class="arrow dw100" src="./img/downarrow100copy.png" alt="dw100"/>
+					</div>
+					<div class="ql_wrapper">
+						<button class="ql btn">100</button>
+						<button class="ql btn">200</button>
+						<button class="ql btn">300</button>
+						<button class="back btn">Back</button>
+					</div>
+				</div>
+				<input id="withdraw_input"  value="0" type="text" placeholder="0" readonly/>
+				<button class="wdenter btn">Enter</button>
+			</section>
+
+			<!-- Withdraw Confirm Page -->
+			<section id="withdraw_confirm_page" class="wrapper">			
+				<header class="header center">
+					<!-- Append -->
+				</header>	
+				<div class="yn_btn_wrapper">
+					<button class="yes btn">YES</button>
+					<button class="no btn">NO</button>
+				</div>
+			</section>
+
+			<!-- Withdraw Result Page -->
+			<section id="withdraw_result_page" class="wrapper">
+				<header class="header center">
+					<h3 class="subtitle ls-1">Money has been withdrawn.</h3>
+				</header>
+				<div class="check_img_wrapper">
+					<img src="./img/checkmark.png" alt="checkmark" />
+				</div>
+				<div class="result_btn_wrapper">
+					<button class="home btn">Home</button>
+					<button class="again btn">Perform Another Withdraw</button>
+					<button class="return btn">Return Card</button>
+				</div>
+			</section>
+			
+			<!-- Deposit Page -->
+			<section id="deposit_page" class="wrapper">
+				<header class="header center">
+					<h3 class="subtitle ls-1">Enter the amount to deposit</h3>
+				</header>
+				<div class="input_wrapper inner">
+					<input id="deposit_input" type="text" placeholder="$0000.00" readonly/>
+				</div>
+				<div class="btn_wrapper inner">
+					<button class="num">1</button>
+					<button class="num">2</button>
+					<button class="num">3</button>
+					<button class="num">4</button>
+					<button class="num">5</button>
+					<button class="num">6</button>
+					<button class="num">7</button>
+					<button class="num">8</button>
+					<button class="num">9</button>
+					<button class="num nf">0</button>
+					<button class="num nf nm">.</button>
+					<button class="del">Del</button>
+					<button class="enter">Enter</button>
+				</div>
+				<div class="back_btn_wrapper">
+					<button class="back btn">Back</button>
+				</div>
+			</section>
+			
+			<!-- Deposit Confirm Page -->
+			<section id="deposit_confirm_page" class="wrapper">
+				<header class="header center">
+					<!-- Append -->
+				</header>
+				<div class="yn_btn_wrapper">
+					<button class="yes btn">YES</button>
+					<button class="no btn">NO</button>
+				</div>
+			</section>
+
+			<!-- Deposit Semi-Result Page -->
+			<section id="deposit_semi_result_page" class="wrapper">
+				<header class="header center">
+					<h3 class="subtitle ls-1">Enter the specified amount of money into the ATM.</h3>
+				</header>
+				<div class="ok_btn_wrapper center">
+					<button class="ok btn">OK</button>
+				</div>
+			</section>
+
+			<!-- Deposit Result Page -->
+			<section id="deposit_result_page" class="wrapper">
+				<header class="header center">
+					<h3 class="subtitle ls-1">Money has been deposited.</h3>
+				</header>
+				<div class="check_img_wrapper">
+					<img src="./img/checkmark.png" alt="checkmark" />
+				</div>
+				<div class="result_btn_wrapper">
+					<button class="home btn">Home</button>
+					<button class="again btn">Deposit again</button>
+					<button class="return btn">Return Card</button>
+				</div>
+			</section>
+			
+			<!-- Transfer Page -->
+			<section id="transfer_page" class="wrapper">
+				<div class="select_wrapper from">
+					<h1 class="title center">From</h1>
+					<select id="from_select">
+						<!-- Append -->
+					</select>
+				</div>
+				<div class="select_wrapper to">
+					<h1 class="title center">To</h1>
+					<select id="to_select">
+						<!-- Append -->
+					</select>
+				</div>
+				<div class="input_wrapper inner">
+					<input id="transfer_input" type="text" placeholder="$0000.00" readonly/>
+				</div>
+				<div class="btn_wrapper inner">
+					<button class="num">1</button>
+					<button class="num">2</button>
+					<button class="num">3</button>
+					<button class="num">4</button>
+					<button class="num">5</button>
+					<button class="num">6</button>
+					<button class="num">7</button>
+					<button class="num">8</button>
+					<button class="num">9</button>
+					<button class="num nf">0</button>
+					<button class="num nf nm">.</button>
+					<button class="del">Del</button>
+					<button class="enter">Enter</button>
+				</div>
+				<div class="back_btn_wrapper">
+					<button class="back btn">Back</button>
+				</div>
+			</section>
+
+			<!-- Transfer Confirm Page -->
+			<section id="transfer_confirm_page" class="wrapper">			
+				<header class="header center">
+					<!-- Append -->
+				</header>	
+				<div class="yn_btn_wrapper">
+					<button class="yes btn">YES</button>
+					<button class="no btn">NO</button>
+				</div>
+			</section>
+
+			<!-- Transfer Result Page -->
+			<section id="transfer_result_page" class="wrapper">
+				<header class="header center">
+					<h3 class="subtitle ls-1">Money has been transferred.</h3>
+				</header>
+				<div class="check_img_wrapper">
+					<img src="./img/checkmark.png" alt="checkmark" />
+				</div>
+				<div class="result_btn_wrapper">
+					<button class="home btn">Home</button>
+					<button class="again btn">Perform Another Transaction</button>
+					<button class="return btn">Return Card</button>
+				</div>
+			</section>
+		</div>
+	</body>
+</html>
