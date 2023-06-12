@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MazeActivity">
+
+    <TextView
+        android:id="@+id/textViewTurn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Turn : 0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHint"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HINT"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTurn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewTurn"
+        app:layout_constraintTop_toTopOf="@+id/textViewTurn" />
+
+    <GridView
+        android:id="@+id/GridViewMap"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:horizontalSpacing="0dp"
+        android:verticalSpacing="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHint" />
+
+    <Button
+        android:id="@+id/buttonLeft"
+        android:layout_width="93dp"
+        android:layout_height="93dp"
+        android:text="LEFT"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonDown"
+        app:layout_constraintEnd_toStartOf="@+id/buttonUp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonUp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="UP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GridViewMap" />
+
+    <Button
+        android:id="@+id/buttonDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DOWN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUp" />
+
+    <Button
+        android:id="@+id/buttonRight"
+        android:layout_width="88dp"
+        android:layout_height="92dp"
+        android:text="RIGHT"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonDown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonUp"
+        app:layout_constraintTop_toTopOf="@+id/buttonUp"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
