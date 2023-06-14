@@ -282,7 +282,7 @@ public:
 
                 if(leftType != rightType){
                     errorCnt++;
-                    cout << "Error : Type mismatch" << endl;                    
+                    cout << "Error : Type mismatch" << ctx->children[0]->getText() << ctx->children[2]->getText() << endl;                    
                 }
 
                 if(op == "<" || op == "<=" || op == ">" || op == ">=" || op == "==" || op == "!=" || op == "&&" || op == "||"){
@@ -306,6 +306,7 @@ public:
                 
                 if(leftType != rightType){
                     errorCnt++;
+                    cout << "Error : Type mismatch" << ctx->children[2]->getText() << ctx->children[4]->getText() << endl;       
                     cout << "Error : Type mismatch" << endl;
                 }
 
