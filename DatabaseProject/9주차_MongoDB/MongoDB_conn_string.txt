@@ -1,0 +1,1 @@
+mongodb+srv://jihn011258:<password>@jinwoo.tzcaxbf.mongodb.net/?retryWrites=true&w=majority

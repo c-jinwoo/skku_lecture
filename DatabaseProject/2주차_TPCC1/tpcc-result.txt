@@ -1,0 +1,60 @@
+***************************************
+*** ###easy### TPC-C Load Generator ***
+***************************************
+option h with value 'mysql'
+option u with value 'root'
+option p with value '1234'
+option d with value 'tpcc5'
+option w with value '5'
+option S (socket) with value '/tmp/mysql.c'
+non-option ARGV-elements: r l 300
+<Parameters>
+     [server]: mysql
+     [port]: 3306
+     [DBname]: tpcc5
+       [user]: root
+       [pass]: 1234
+  [warehouse]: 5
+ [connection]: 10
+     [rampup]: 10 (sec.)
+    [measure]: 20 (sec.)
+
+RAMP-UP TIME.(10 sec.)
+
+MEASURING START.
+
+  10, trx: 708, 95%: 159.541, 99%: 207.933, max_rt: 294.592, 708|253.499, 70|65.039, 71|374.175, 71|649.108
+  20, trx: 726, 95%: 151.535, 99%: 228.288, max_rt: 343.919, 725|196.831, 73|33.748, 72|529.428, 72|451.226
+
+STOPPING THREADS..........
+
+<Raw Results>
+  [0] sc:0 lt:1434  rt:0  fl:0 avg_rt: 107.3 (5)
+  [1] sc:3 lt:1430  rt:0  fl:0 avg_rt: 38.5 (5)
+  [2] sc:101 lt:42  rt:0  fl:0 avg_rt: 9.6 (5)
+  [3] sc:0 lt:143  rt:0  fl:0 avg_rt: 308.5 (80)
+  [4] sc:0 lt:143  rt:0  fl:0 avg_rt: 308.1 (20)
+ in 20 sec.
+
+<Raw Results2(sum ver.)>
+  [0] sc:0  lt:1435  rt:0  fl:0
+  [1] sc:3  lt:1430  rt:0  fl:0
+  [2] sc:101  lt:42  rt:0  fl:0
+  [3] sc:0  lt:143  rt:0  fl:0
+  [4] sc:0  lt:143  rt:0  fl:0
+
+<Constraint Check> (all must be [OK])
+ [transaction percentage]
+        Payment: 43.48% (>=43.0%) [OK]
+   Order-Status: 4.34% (>= 4.0%) [OK]
+       Delivery: 4.34% (>= 4.0%) [OK]
+    Stock-Level: 4.34% (>= 4.0%) [OK]
+ [response time (at least 90% passed)]
+      New-Order: 0.00%  [NG] *
+        Payment: 0.21%  [NG] *
+   Order-Status: 70.63%  [NG] *
+       Delivery: 0.00%  [NG] *
+    Stock-Level: 0.00%  [NG] *
+
+<TpmC>
+                 4302.000 TpmC
