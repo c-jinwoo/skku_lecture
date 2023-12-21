@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.swe.buddybud.Mapper.UserMapper">
+
+    <!-- 로그인 비밀번호 체크 -->
+    <select id="userLogin" resultType="java.util.Map">
+        SELECT
+            seq,
+            id,
+            pw,
+            lang,
+            gender
+        FROM
+            M_USER
+        WHERE
+            email = #{email}
+    </select>
+
+    <!-- 이메일 중복 체크 -->
+    <select id="userEmailDuplCheck" resultType="Integer">
+        SELECT
+            COUNT(*)
+        FROM
+            M_USER
+        WHERE
+            email = #{email}
+    </select>
+
+    <!-- ID 중복 체크 -->
+    <select id="userIdDuplCheck" resultType="Integer">
+        SELECT
+            COUNT(*)
+        FROM
+            M_USER
+        WHERE
+            id = #{id}
+    </select>
+
+    <!-- 회원 가입 -->
+    <insert id="insertUserInfo">
+        INSERT INTO
+            M_USER (
+                email,
+                pw,
+	            id,
+                school,
+                dob,
+                lang,
+                gender
+            )
+        VALUES (
+                #{email},
+                #{password},
+                #{id},
+                #{school},
+                str_to_date(#{dob}, '%Y%m%d'),
+                #{lang},
+                #{gender}
+            )
+    </insert>
+
+    <!-- 회원 정보 수정 -->
+    <update id="updateUserInfo">
+        UPDATE
+            M_USER
+        SET
+            <if test='id != null and id != ""'>
+                id = #{id},
+            </if>
+            <if test='lang != null and lang != ""'>
+                lang = #{lang},
+            </if>
+            <if test='gender != null and gender != ""'>
+                gender = #{gender}
+            </if>
+        WHERE
+            seq = #{seq}
+    </update>
+</mapper>

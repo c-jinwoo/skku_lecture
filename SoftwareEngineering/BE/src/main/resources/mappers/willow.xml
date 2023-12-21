@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.swe.buddybud.Mapper.WillowMapper">
+
+    <!--  willow 신청  -->
+    <insert id="sendWillow">
+        INSERT INTO
+            W_WILLOW (
+            sender_no,
+            receiver_no,
+            created_at,
+            state
+        )
+        SELECT
+            #{sender_no},
+            #{receiver_no},
+            sysdate(),
+            'N'
+        FROM dual
+        WHERE NOT EXISTS (
+            SELECT 1 FROM W_WILLOW
+            WHERE sender_no = #{receiver_no} AND receiver_no = #{sender_no}
+        );
+    </insert>
+
+    <!--  willow 신청한 목록 조회 -->
+    <select id="getSentWillowList" resultType="java.util.Map">
+        SELECT
+            CAST(W_WILLOW.receiver_no AS CHAR) AS receiver_no,
+            DATE_FORMAT(W_WILLOW.created_at, '%Y/%m/%d %H:%i:%s') AS created_at,
+            W_WILLOW.state AS state,
+            M_USER.id AS receiver_id,
+            M_USER.school AS receiver_school,
+            M_USER.gender AS receiver_gender
+        FROM
+            W_WILLOW
+                INNER JOIN M_USER ON W_WILLOW.receiver_no = M_USER.seq
+        WHERE
+            W_WILLOW.sender_no = #{userId} AND
+            W_WILLOW.state = 'N'
+    </select>
+
+    <!--  willow 신청받은 목록 조회  -->
+    <select id="getReceivedWillowList" resultType="java.util.Map">
+        SELECT
+            CAST(W_WILLOW.sender_no AS CHAR) AS sender_no,
+            DATE_FORMAT(W_WILLOW.created_at, '%Y/%m/%d %H:%i:%s') AS created_at,
+            W_WILLOW.state AS state,
+            M_USER.id AS sender_id,
+            M_USER.school AS sender_school,
+            M_USER.gender AS sender_gender
+        FROM
+            W_WILLOW
+                INNER JOIN M_USER ON W_WILLOW.sender_no = M_USER.seq
+        WHERE
+            W_WILLOW.receiver_no = #{userId} AND
+            W_WILLOW.state = 'N'
+    </select>
+
+
+    <!-- 채팅 가져오기 -->
+    <select id="getAllChat" resultType="java.util.Map">
+        SELECT
+            W_CHAT_MESSAGE.sender_no as sender, W_CHAT_MESSAGE.content as content, W_CHAT_MESSAGE.created_at as time
+        FROM
+            W_CHAT_ROOM JOIN W_CHAT_MESSAGE ON W_CHAT_ROOM.seq = W_CHAT_MESSAGE.chat_room_no
+        WHERE
+            (W_CHAT_ROOM.sender_no = #{sender_no} AND W_CHAT_ROOM.receiver_no = #{receiver_no})
+        OR
+            (W_CHAT_ROOM.sender_no = #{receiver_no} AND W_CHAT_ROOM.receiver_no = #{sender_no})
+        ORDER BY
+            created_at ASC;
+    </select>
+
+    <!-- 내 모든 윌로우 가져오기 -->
+    <select id="getMyWillows" resultType="java.util.Map">
+        SELECT
+            user.id, user.seq, chatroom.seq as chat_room_no, latest_chat.content AS latest_message, latest_chat.created_at as message_time
+        FROM
+            W_WILLOW ww
+        INNER JOIN M_USER user
+            ON
+            user.seq =
+                CASE WHEN ww.sender_no = #{user_no}
+                THEN ww.receiver_no
+                ELSE ww.sender_no END
+        INNER JOIN W_CHAT_ROOM chatroom
+            ON
+            chatroom.sender_no = ww.sender_no AND
+            chatroom.receiver_no = ww.receiver_no
+        LEFT JOIN
+            (SELECT
+                chat_message.chat_room_no,
+                chat_message.content,
+                chat_message.created_at
+            FROM
+                W_CHAT_MESSAGE chat_message
+            INNER JOIN
+                (SELECT
+                    chat_room_no, MAX(created_at) AS MaxDate
+                FROM
+                    W_CHAT_MESSAGE
+                GROUP BY
+                    chat_room_no) groupedcm
+            ON
+            chat_message.chat_room_no = groupedcm.chat_room_no
+            AND chat_message.created_at = groupedcm.MaxDate)
+        AS latest_chat
+            ON
+        latest_chat.chat_room_no = chatroom.seq
+        WHERE
+            ww.sender_no = #{user_no} OR
+            ww.receiver_no = #{user_no}
+    </select>
+
+    <!-- 채팅 보내기 -->
+    <insert id="insertChat">
+        INSERT INTO
+            W_CHAT_MESSAGE
+            (chat_room_no, sender_no, content, created_at)
+        SELECT
+            chatroom.seq, #{sender_no}, #{content}, sysdate()
+        FROM
+            W_CHAT_ROOM chatroom
+        WHERE
+            (chatroom.sender_no = #{sender_no} AND chatroom.receiver_no = #{receiver_no})
+            OR
+            (chatroom.sender_no = #{receiver_no} AND chatroom.receiver_no = #{sender_no});
+    </insert>
+
+    <!-- willow 승인시 채팅방 생성 -->
+    <insert id="addChatRoom">
+        INSERT INTO w_chat_room (sender_no, receiver_no)
+        SELECT * FROM (SELECT #{sender_no}, #{receiver_no}) AS tmp
+        WHERE NOT EXISTS (
+            SELECT 1 FROM w_chat_room
+            WHERE (sender_no = #{sender_no} AND receiver_no = #{receiver_no}) OR (sender_no = #{receiver_no} AND receiver_no = #{sender_no})
+        )
+    </insert>
+
+    <!-- willow 신청 승인 -->
+    <update id="acceptWillow">
+        UPDATE
+            W_WILLOW
+        SET
+            state = 'Y'
+        WHERE
+            (sender_no = #{sender_no} AND receiver_no = #{receiver_no})
+            OR
+            (sender_no = #{receiver_no} AND receiver_no = #{sender_no})
+    </update>
+
+    <update id="cancelAcceptWillow">
+        UPDATE
+        W_WILLOW
+        SET
+        state = 'N'
+        WHERE
+        (sender_no = #{sender_no} AND receiver_no = #{receiver_no})
+        OR
+        (sender_no = #{receiver_no} AND receiver_no = #{sender_no})
+    </update>
+    
+
+    <!-- willow 신청 취소/거부 -->
+    <delete id="deleteWillowRequest">
+        DELETE FROM
+            W_WILLOW
+        WHERE
+            sender_no = #{sender_no} AND
+            receiver_no = #{receiver_no} AND
+            state = 'N';
+    </delete>
+
+</mapper>

@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.swe.buddybud.Mapper.BoardMapper">
+
+    <!--  게시글 목록 조회  -->
+    <select id="getBoardsList" resultType="java.util.Map">
+        SELECT
+            CAST(A.seq AS CHAR) AS post_no,
+            A.title,
+            A.content,
+            M_USER.id AS post_user_id,
+            CAST(M_USER.seq AS CHAR) AS post_user_no,
+            <if test='boardType == "Notice"'>
+                A.url,
+                CASE
+                    WHEN EXISTS (
+                        SELECT
+                            1
+                        FROM
+                            B_SCRAP C
+                        WHERE
+                            C.post_no = A.seq
+                            AND C.user_no = #{userId}
+                    ) THEN 'Y'
+                    ELSE 'N'
+                END AS
+                    scrap_yn,
+                CAST((
+                    SELECT
+                        COUNT(*)
+                    FROM
+                        B_SCRAP C
+                    WHERE
+                        C.post_no = A.seq
+                ) AS CHAR) AS scrap_num,
+            </if>
+            CASE
+                WHEN EXISTS (
+                    SELECT
+                        1
+                    FROM
+                        B_POST_LIKE B
+                    WHERE
+                        B.post_no = A.seq
+                        AND B.user_no = #{userId}
+                    ) THEN 'Y'
+                    ELSE 'N'
+            END AS
+                like_yn,
+            CAST((
+                SELECT
+                    COUNT(*)
+                FROM
+                    B_POST_LIKE B
+                WHERE
+                    B.post_no = A.seq
+            ) AS CHAR) AS like_num,
+            CASE
+                WHEN EXISTS (
+                    SELECT
+                        1
+                    FROM
+                        B_COMMENT BC
+                    WHERE
+                        BC.post_no = A.seq
+                        AND BC.user_no = #{userId}
+                    ) THEN 'Y'
+                    ELSE 'N'
+            END AS
+                comment_yn,
+            CAST((
+                SELECT
+                    COUNT(*)
+                FROM
+                    B_COMMENT BC
+                WHERE
+                    BC.post_no = A.seq
+            ) AS CHAR) AS comment_num,
+            DATE_FORMAT(A.created_at, '%Y/%m/%d %H:%i:%s') AS created_at,
+            DATE_FORMAT(A.last_modified_at, '%Y/%m/%d %H:%i:%s') AS last_modified_at
+        FROM
+            B_POST A
+            INNER JOIN M_USER ON A.user_no = M_USER.seq
+        WHERE
+            A.board_type = #{boardType}
+            and A.state = 'Y'
+        ORDER BY
+            A.created_at DESC;
+    </select>
+
+    <!--  게시글 상세 조회  -->
+    <select id="getBoard" resultType="java.util.Map">
+        SELECT
+            CAST(A.seq AS CHAR) AS post_no,
+            A.title,
+            A.content,
+            M_USER.id AS post_user_id,
+            <if test='boardType == "Notice"'>
+                A.url,
+                CASE
+                    WHEN EXISTS (
+                        SELECT
+                            1
+                        FROM
+                            B_SCRAP C
+                        WHERE
+                            C.post_no = #{boardId}
+                            AND C.user_no = #{userId}
+                        ) THEN 'Y'
+                        ELSE 'N'
+                END AS
+                    scrap_yn,
+                CAST((
+                    SELECT
+                        COUNT(*)
+                    FROM
+                        B_SCRAP C
+                    WHERE
+                        C.post_no = #{boardId}
+                ) AS CHAR) AS scrap_num,
+            </if>
+            CASE
+                WHEN EXISTS (
+                    SELECT
+                        1
+                    FROM
+                        B_POST_LIKE B
+                    WHERE
+                        B.post_no = #{boardId}
+                        AND B.user_no = #{userId}
+                ) THEN 'Y'
+                ELSE 'N'
+            END AS
+                like_yn,
+            CAST((
+                SELECT
+                    COUNT(*)
+                FROM
+                    B_POST_LIKE B
+                WHERE
+                    B.post_no = #{boardId}
+            ) AS CHAR) AS like_num,
+            CASE
+                WHEN EXISTS (
+                    SELECT
+                        1
+                    FROM
+                        B_COMMENT BC
+                    WHERE
+                        BC.post_no = A.seq
+                        AND BC.user_no = #{userId}
+                ) THEN 'Y'
+                ELSE 'N'
+            END AS
+                comment_yn,
+            CAST((
+                SELECT
+                    COUNT(*)
+                FROM
+                    B_COMMENT BC
+                WHERE
+                    BC.post_no = A.seq
+            ) AS CHAR) AS comment_num,
+            DATE_FORMAT(A.created_at, '%Y/%m/%d %H:%i:%s') AS created_at,
+            DATE_FORMAT(A.last_modified_at, '%Y/%m/%d %H:%i:%s') AS last_modified_at
+        FROM
+            B_POST A
+            INNER JOIN M_USER ON A.user_no = M_USER.seq
+        WHERE
+            A.seq = #{boardId}
+            AND
+            A.board_type = #{boardType}
+    </select>
+
+    <!--  게시글 작성  -->
+    <insert id="insertBoard">
+        INSERT INTO
+            B_POST (
+            title,
+            content,
+            user_no,
+            board_type,
+            created_at,
+            last_modified_at
+        )
+        VALUES (
+           #{title},
+           #{content},
+           #{user_no},
+           'SNS',
+           sysdate(),
+           sysdate()
+       )
+    </insert>
+
+    <!--  댓글 작성  -->
+    <insert id="insertComment" useGeneratedKeys="true" keyProperty="seq">
+        INSERT INTO B_COMMENT (
+            content,
+            post_no,
+            user_no,
+            parent_comment_no,
+            created_at
+        )
+        VALUES (
+                   #{content},
+                   #{post_no},
+                   #{user_no},
+                    <choose>
+                        <when test="parent_comment_no != -1">
+                            #{parent_comment_no}
+                        </when>
+                        <otherwise>
+                            NULL
+                        </otherwise>
+                    </choose>,
+                   sysdate()
+               )
+    </insert>
+
+    <!-- 방금 작성한 댓글 seq 가져오기 -->
+    <select id="getLastInsertId" resultType="int">
+        SELECT LAST_INSERT_ID()
+    </select>
+
+    <!-- 댓글 작성과 동시에 parent_comment_no 수정 -->
+    <update id="updateParentCommentNo">
+        UPDATE B_COMMENT
+        SET parent_comment_no = #{seq}
+        WHERE seq = #{seq} AND parent_comment_no IS NULL
+    </update>
+
+    <!--  게시글 수정  -->
+    <update id="updateBoard">
+        UPDATE
+            B_POST
+        SET
+            title = #{title},
+            content = #{content},
+            last_modified_at = sysdate()
+        WHERE
+            seq = #{boardId};
+    </update>
+
+    <!--  게시글 삭제  -->
+    <update id="deleteBoard">
+        UPDATE
+            B_POST
+        SET
+            state = 'N'
+        WHERE
+            seq = #{boardId};
+    </update>
+
+    <!--  댓글 조회  -->
+    <select id="getComment" resultType="java.util.Map">
+        SELECT
+            B.seq AS comment_no,
+            B.content AS content,
+            B.parent_comment_no AS parent_comment_no,
+            DATE_FORMAT(B.created_at, '%Y/%m/%d %H:%i:%s') AS created_at,
+            M_USER.id AS user_id,
+            CASE
+                WHEN EXISTS (
+                    SELECT
+                        1
+                    FROM
+                        B_COMMENT_LIKE CL
+                    WHERE
+                        CL.comment_no = B.seq
+                        AND CL.user_no = #{userId}
+                ) THEN 'Y'
+                ELSE 'N'
+            END AS
+                  comment_like_yn,
+            CAST((
+                SELECT
+                    COUNT(*)
+                FROM
+                    B_COMMENT_LIKE CL
+                WHERE
+                    CL.comment_no = B.seq
+            ) AS CHAR) AS comment_like_num,
+            CASE
+                WHEN EXISTS (
+                    SELECT
+                        1
+                    FROM
+                        B_COMMENT_HATE CH
+                    WHERE
+                        CH.comment_no = B.seq
+                      AND CH.user_no = #{userId}
+                ) THEN 'Y'
+                ELSE 'N'
+            END AS
+                  comment_hate_yn,
+            CAST((
+                SELECT
+                    COUNT(*)
+                FROM
+                    B_COMMENT_HATE CH
+                WHERE
+                    CH.comment_no = B.seq
+            ) AS CHAR) AS comment_hate_num,
+            (
+                SELECT
+                    M_USER.id
+                FROM
+                    B_COMMENT BC
+                        JOIN M_USER ON BC.user_no = M_USER.seq
+                WHERE
+                    BC.seq = B.parent_comment_no
+            ) AS parent_comment_user_id,
+            CAST((
+                SELECT
+                    M_USER.seq
+                FROM
+                    B_COMMENT BC
+                        JOIN M_USER ON BC.user_no = M_USER.seq
+                WHERE
+                    BC.seq = B.parent_comment_no
+            ) AS CHAR) AS parent_comment_user_no
+        FROM
+            B_COMMENT B
+            JOIN M_USER ON B.user_no = M_USER.seq
+        WHERE
+            B.post_no = #{boardId}
+        ORDER BY
+            B.parent_comment_no ASC,
+            B.seq ASC
+    </select>
+    
+    <!--  게시판 좋아요 삭제  -->
+    <delete id="deleteBoardLike">
+        DELETE
+        FROM
+            B_POST_LIKE
+        WHERE
+            post_no = #{boardId}
+            AND user_no = #{userId}
+    </delete>
+
+    <!--  게시판 좋아요 추가  -->
+    <insert id="insertBoardLike">
+        INSERT INTO
+            B_POST_LIKE (
+            post_no,
+            user_no
+        )
+        VALUES (
+                #{boardId},
+                #{userId}
+       )
+    </insert>
+
+    <!--  댓글 좋아요/싫어요 삭제  -->
+    <delete id="deleteCommentLike">
+        <if test='tableType == "Like"'>
+            DELETE
+            FROM
+                B_COMMENT_LIKE
+            WHERE
+                comment_no = #{commentId}
+                AND user_no = #{userId}
+        </if>
+        <if test='tableType == "Hate"'>
+            DELETE
+            FROM
+                B_COMMENT_HATE
+            WHERE
+                comment_no = #{commentId}
+                AND user_no = #{userId}
+        </if>
+    </delete>
+
+    <!--  댓글 좋아요/싫어요 추가  -->
+    <insert id="insertCommentLike">
+        <if test='tableType == "Like"'>
+            INSERT INTO
+                B_COMMENT_LIKE (
+                comment_no,
+                user_no
+            )
+            VALUES (
+                #{commentId},
+                #{userId}
+            )
+        </if>
+        <if test='tableType == "Hate"'>
+            INSERT INTO
+                B_COMMENT_HATE (
+                comment_no,
+                user_no
+            )
+            VALUES (
+                #{commentId},
+                #{userId}
+            )
+        </if>
+    </insert>
+
+    <!--  스크랩 삭제  -->
+    <delete id="deleteScrap">
+        DELETE
+        FROM
+            B_SCRAP
+        WHERE
+            post_no = #{boardId}
+          AND user_no = #{userId}
+    </delete>
+
+    <!--  스크랩 추가  -->
+    <insert id="insertScrap">
+        INSERT INTO
+            B_SCRAP (
+            post_no,
+            user_no,
+            created_at
+        )
+        VALUES (
+                   #{boardId},
+                   #{userId},
+                    sysdate()
+               )
+    </insert>
+
+</mapper>

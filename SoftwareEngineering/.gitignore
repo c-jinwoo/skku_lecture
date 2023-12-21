@@ -1,0 +1,61 @@
+################## FE #####################
+/FE/app/src/main/java/com/swe/buddybud/common/ServerConfig.java
+/FE/*.iml
+/FE/local.properties
+/FE/.idea/caches
+/FE/.idea/libraries
+/FE/.idea/modules.xml
+/FE/.idea/workspace.xml
+/FE/.idea/navEditor.xml
+/FE/.idea/assetWizardSettings.xml
+/FE/.DS_Store
+/FE/build
+/FE/captures
+/FE/.externalNativeBuild
+/FE/.cxx
+/FE/local.properties
+/FE/.gradle
+/FE/app/.cxx/
+
+################## BE #####################
+/BE/src/main/resources/application.properties
+
+.DS_Store
+/BE/local.properties
+/BE/HELP.md
+/BE/.gradle
+/BE/build/
+/BE/!gradle/wrapper/gradle-wrapper.jar
+/BE/!**/src/main/**/build/
+/BE/!**/src/test/**/build/
+
+### STS ###
+/BE/.apt_generated
+/BE/.classpath
+/BE/.factorypath
+/BE/.project
+/BE/.settings
+/BE/.springBeans
+/BE/.sts4-cache
+/BE/bin/
+/BE/!**/src/main/**/bin/
+/BE/!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+/BE/.idea
+/BE/*.iws
+/BE/*.iml
+/BE/*.ipr
+/BE/out/
+/BE/!**/src/main/**/out/
+/BE/!**/src/test/**/out/
+
+### NetBeans ###
+/BE/nbproject/private/
+/BE/nbbuild/
+/BE/dist/
+/BE/nbdist/
+/BE/.nb-gradle/
+
+### VS Code ###
+/BE/.vscode/

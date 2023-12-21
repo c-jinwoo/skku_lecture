@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">swe</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="languages_array">
+        <item>English</item>
+        <item>Korean</item>
+        <item>Japanese</item>
+        <item>Chinese</item>
+        <item>French</item>
+        <item>Spanish</item>
+    </string-array>
+</resources>

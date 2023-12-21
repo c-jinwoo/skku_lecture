@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/board_detail_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:screenReaderFocusable="false"
+    tools:context=".board.BoardFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/back_1_Button"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/back"
+                android:translationX="20sp"
+                android:translationY="20sp" />
+
+            <TextView
+                android:id="@+id/board_Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Post"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="400sp"
+                android:layout_height="2sp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#000000"
+                android:translationY="20sp" />
+
+            <FrameLayout
+                android:id="@+id/post_1_detail"
+                android:layout_width="match_parent"
+                android:layout_height="940sp"
+                android:translationX="22sp"
+                android:translationY="30sp">
+
+                <ImageView
+                    android:id="@+id/frame_1_Shadow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:minWidth="348sp"
+                    android:minHeight="780sp"
+                    android:src="@drawable/edittext_shadow" />
+
+                <ImageView
+                    android:id="@+id/skkuIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/skku"
+                    android:translationX="25sp"
+                    android:translationY="25sp" />
+
+                <TextView
+                    android:id="@+id/post_1_Author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성균관대학교 공지사항"
+                    android:translationX="80sp"
+                    android:translationY="30sp" />
+
+                <TextView
+                    android:id="@+id/post_1_Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23/01/23 17:18"
+                    android:textSize="12sp"
+                    android:translationX="81sp"
+                    android:translationY="50sp" />
+
+                <ImageButton
+                    android:id="@+id/scrap_1_Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/scrapping"
+                    android:translationX="290sp"
+                    android:translationY="28sp" />
+
+                <TextView
+                    android:id="@+id/scrap_1_Count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13"
+                    android:textSize="10sp"
+                    android:translationX="296sp"
+                    android:translationY="57sp" />
+
+                <TextView
+                    android:id="@+id/post_1_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="275sp"
+                    android:text="[채용/모집] [연장] 성균관대학교 SW융합대학 소프트웨어학과 융합보안트랙 담당 행정직원 모집(~10/15일, 일)"
+                    android:textStyle="bold"
+                    android:translationX="37sp"
+                    android:translationY="80sp" />
+
+                <TextView
+                    android:id="@+id/post_1_Content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="275sp"
+                    android:text="성균관대학교 SW융합대학 소프트웨어학과 융합보안트랙에서 학사 및 연구과제 행정업무를 담당할 직원을 아래와 같이 모집하니 관심 있는 분의 많은 지원 바랍니다.\n\n 1. 직종 및 모집인원: 행정직원 1명\n 2. 근무부서 및 담당업무\n     가. 근무처: SW융합대학 소프트웨어학과\n    나. 담당업무: 융합보안트랙 학사 및 연구과제 행정업무\n 3. 근로조건\n    가. 계약기간 : 1년 단위 계약(매년 근무평가에 따라 연장 여부 결정)\n   나. 근무장소: 성균관대학교 자연과학캠퍼스(수원) \n   다. 근무시간: 월~금, 09:00~17:30\n    라. 급    여: 월 270~300만원\n 4. 지원자격\n    가. 학사 학위 이상 소지자\n    나. 우대사항\n       - 대학 학사행정 및 연구비 관리 업무 경력 1년 이상\n       - MS Office(Excel, Powerpoint), 한글 등 사무용 컴퓨터 프로그램 사용 가능자\n       - 홈페이지 제작 및 관리 경험자 우대\n       - 즉시 근무 가능자 선호\n "
+                    android:translationX="37sp"
+                    android:translationY="170sp" />
+
+                <ImageButton
+                    android:id="@+id/like_1_Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/liking"
+                    android:translationX="40sp"
+                    android:translationY="710sp" />
+
+                <TextView
+                    android:id="@+id/like_1_Count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25"
+                    android:textSize="10sp"
+                    android:translationX="43sp"
+                    android:translationY="730sp" />
+
+                <ImageButton
+                    android:id="@+id/link_1_Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/link"
+                    android:translationX="92sp"
+                    android:translationY="711sp" />
+
+                <ImageButton
+                    android:id="@+id/translate_1_Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/translate"
+                    android:translationX="140sp"
+                    android:translationY="710sp" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

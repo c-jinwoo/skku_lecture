@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile" />
+
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewTitle"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewTitle"
+        app:layout_constraintStart_toStartOf="@+id/imageViewTitle"
+        app:layout_constraintTop_toTopOf="@+id/imageViewTitle"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textViewYouBeMy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-black"
+        android:text="YOU, BE MY"
+        android:textColor="#A4A4A4"
+        android:textFontWeight="1000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewBud"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTitle" />
+
+    <TextView
+        android:id="@+id/textViewBud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="sans-serif-black"
+        android:text="BUD"
+        android:textColor="#94DEF7"
+        android:textFontWeight="1000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewYouBeMy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewYouBeMy"
+        app:layout_constraintTop_toTopOf="@+id/textViewYouBeMy" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="267dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edittext_shadow"
+        android:ems="10"
+        android:fontFamily="@font/noto_sans"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:paddingStart="24dp"
+        android:textColorHint="#A4A4A4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewYouBeMy" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="267dp"
+        android:layout_height="74dp"
+        android:background="@drawable/edittext_shadow"
+        android:ems="10"
+        android:fontFamily="@font/noto_sans"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingStart="24dp"
+        android:textColorHint="#A4A4A4"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+    <CheckBox
+        android:id="@+id/checkBoxRememberMe"
+        android:layout_width="128dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="139dp"
+        android:buttonTint="#A4A4A4"
+        android:text="Remember Me"
+        android:textColor="#A4A4A4"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+    <Button
+        android:id="@+id/buttonSignIn"
+        android:layout_width="108dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#A4A4A4"
+        android:text="Sign In"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxRememberMe" />
+
+    <TextView
+        android:id="@+id/textViewFindPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Find Password"
+        android:textColor="#A4A4A4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn" />
+
+    <TextView
+        android:id="@+id/textViewSlash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" / "
+        android:textColor="#A4A4A4"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewFindPassword"
+        app:layout_constraintStart_toEndOf="@+id/textViewFindPassword"
+        app:layout_constraintTop_toTopOf="@+id/textViewFindPassword" />
+
+    <TextView
+        android:id="@+id/textViewSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Sign Up"
+        android:textColor="#A4A4A4"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSlash"
+        app:layout_constraintStart_toEndOf="@+id/textViewSlash"
+        app:layout_constraintTop_toTopOf="@+id/textViewSlash"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

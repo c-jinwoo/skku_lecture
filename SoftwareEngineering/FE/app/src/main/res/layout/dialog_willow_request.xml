@@ -1,0 +1,106 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/box_default">
+
+    <TextView
+        android:id="@+id/textViewRequest"
+        android:layout_width="297dp"
+        android:layout_height="wrap_content"
+        android:text="Willow 요청 보내기"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/notosans_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#A4A4A4"
+        app:layout_constraintTop_toBottomOf="@id/textViewRequest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/dialog_profile_image"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:src="@drawable/icon_account"
+        app:layout_constraintTop_toBottomOf="@id/line1"
+        app:layout_constraintBottom_toBottomOf="@id/line2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dialog_nickname"
+        app:layout_constraintHorizontal_chainStyle="packed"/>
+
+    <TextView
+        android:id="@+id/dialog_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nickname"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/notosans_medium"
+        app:layout_constraintTop_toTopOf="@id/dialog_profile_image"
+        app:layout_constraintBottom_toBottomOf="@id/dialog_profile_image"
+        app:layout_constraintStart_toEndOf="@id/dialog_profile_image"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#A4A4A4"
+        app:layout_constraintTop_toBottomOf="@id/dialog_profile_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/dialog_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/notosans_medium"
+        android:padding="12dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/line2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/line3"/>
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#A4A4A4"
+        app:layout_constraintTop_toTopOf="@id/dialog_cancel"
+        app:layout_constraintBottom_toBottomOf="@id/dialog_cancel"
+        app:layout_constraintStart_toEndOf="@id/dialog_cancel"
+        app:layout_constraintEnd_toStartOf="@id/dialog_send"/>
+
+    <TextView
+        android:id="@+id/dialog_send"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/notosans_medium"
+        android:padding="12dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/dialog_cancel"
+        app:layout_constraintBottom_toBottomOf="@id/dialog_cancel"
+        app:layout_constraintStart_toEndOf="@id/line3"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

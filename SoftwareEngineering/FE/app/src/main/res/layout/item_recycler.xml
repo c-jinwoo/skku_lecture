@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/box_default"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/feedProfileImage"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:src="@drawable/test"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/feedNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="4dp"
+        android:text="NickName"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/notosans_medium"
+        app:layout_constraintTop_toTopOf="@id/feedProfileImage"
+        app:layout_constraintStart_toEndOf="@id/feedProfileImage"/>
+
+    <TextView
+        android:id="@+id/feedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="5dp"
+        android:text="23/01/01 17:15"
+        android:textSize="10sp"
+        android:textColor="#A4A4A4"
+        android:fontFamily="@font/notosans_medium"
+        app:layout_constraintBottom_toBottomOf="@id/feedProfileImage"
+        app:layout_constraintStart_toEndOf="@id/feedProfileImage" />
+
+    <TextView
+        android:id="@+id/feedTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="18dp"
+        android:text="제모옥은 고추장 닭날개 조림으로 하겠습니다"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/notosans_medium"
+        app:layout_constraintTop_toBottomOf="@id/feedProfileImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/feedContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="3dp"
+        android:text="근데 이제 바질을 곁들인"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/notosans_medium"
+        app:layout_constraintTop_toBottomOf="@id/feedTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageThumbsUp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/icon_thumbs_up"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintTop_toBottomOf="@id/feedContent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/feedThumbsUpNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="13dp"
+        android:text="10"
+        android:textSize="9sp"
+        android:textColor="#A4A4A4"
+        android:fontFamily="@font/notosans_medium"
+        app:layout_constraintStart_toStartOf="@id/imageThumbsUp"
+        app:layout_constraintEnd_toEndOf="@id/imageThumbsUp"
+        app:layout_constraintTop_toBottomOf="@id/imageThumbsUp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageComment"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/icon_comment"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginStart="27dp"
+        app:layout_constraintTop_toBottomOf="@id/feedContent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageThumbsUp"/>
+
+    <TextView
+        android:id="@+id/feedCommentNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="13dp"
+        android:text="7"
+        android:textSize="9sp"
+        android:textColor="#A4A4A4"
+        android:fontFamily="@font/notosans_medium"
+        app:layout_constraintStart_toStartOf="@+id/imageComment"
+        app:layout_constraintEnd_toEndOf="@+id/imageComment"
+        app:layout_constraintTop_toBottomOf="@+id/imageComment"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageTranslation"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/icon_translation"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginStart="27dp"
+        app:layout_constraintTop_toBottomOf="@id/feedContent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageComment"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

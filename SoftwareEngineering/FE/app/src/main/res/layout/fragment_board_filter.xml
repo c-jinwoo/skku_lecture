@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/board_filter_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/back_1_Button"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/back"
+                android:translationX="20sp"
+                android:translationY="20sp" />
+
+            <TextView
+                android:id="@+id/board_Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Filter"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="400sp"
+                android:layout_height="2sp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#000000"
+                android:translationY="20sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="180sp"
+                android:translationX="30sp"
+                android:translationY="30sp">
+
+                <TextView
+                    android:id="@+id/title_Order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Order"
+                    android:textStyle="bold"
+                    android:translationY="30sp" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:translationX="10sp"
+                    android:translationY="70sp">
+
+                    <RadioButton
+                        android:id="@+id/radioButton_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="최신순" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="추천순" />
+
+                </RadioGroup>
+
+            </FrameLayout>
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="2sp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#000000"
+                android:translationY="20sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="200sp"
+                android:translationX="30sp"
+                android:translationY="30sp">
+
+                <TextView
+                    android:id="@+id/title_Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Information Source"
+                    android:textStyle="bold"
+                    android:translationY="10sp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성균관대학교 공지사항 게시판"
+                    android:translationY="30sp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="에브리타임 홍보 게시판"
+                    android:translationY="60sp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  에브리타임 동아리/학회 게시판"
+                    android:translationY="90sp" />
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/initButton"
+                android:layout_width="180sp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:text="초기화"
+                android:textColor="#A4A4A4"
+                android:translationX="10sp"
+                app:strokeColor="#A4A4A4"
+                app:strokeWidth="1sp" />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="180sp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#A4A4A4"
+                android:text="적용하기"
+                android:translationX="200sp"
+                android:translationY="-48sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
