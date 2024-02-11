@@ -7,6 +7,7 @@
 ### 2022년 2학기
 - [알고리즘](https://github.com/c-jinwoo/skku_lecture/tree/master/Algorithms)
 - [문제해결](https://github.com/c-jinwoo/skku_lecture/tree/master/ProblemSolving)
+- [컴퓨터구조](https://github.com/c-jinwoo/skku_lecture/tree/master/ComputerArchitecture)
 - [운영체제](https://github.com/c-jinwoo/skku_lecture/tree/master/OperatingSystem)
 - [시스템프로그래밍실습](https://github.com/c-jinwoo/skku_lecture/tree/master/SystemProgrammingLab)
 - [웹프로그래밍실습](https://github.com/c-jinwoo/skku_lecture/tree/master/WebProgrammingLab)
