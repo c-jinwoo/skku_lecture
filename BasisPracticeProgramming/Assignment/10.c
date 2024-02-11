@@ -1,9 +1,3 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Assignment 10
- *	About	 	: word count and punct count
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
 
 #include <stdio.h>
 #include <ctype.h>

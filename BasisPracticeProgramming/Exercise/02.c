@@ -1,10 +1,3 @@
-/*
- *	Basic and Practice in Programming
- *	Lab Exercise 2
- *	2020315798 Choi Jin Woo(ÃÖÁø¿ì) 
- *
- */
- 
  #include <stdio.h>
  #include <math.h>
  #define _USE_MATH_DEFINES										// define constant to use Math.PI to get the area of circle

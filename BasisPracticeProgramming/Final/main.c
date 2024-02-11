@@ -1,9 +1,3 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Final Assignment
- *	About	 	: Article management system
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
 
 #include <stdio.h>
 #include <stdlib.h>

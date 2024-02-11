@@ -1,10 +1,3 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Exercise 4
- *	About	 	: Get cubic root of the user input by using functions
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
- 
  #include <stdio.h>
  #include <math.h>
  

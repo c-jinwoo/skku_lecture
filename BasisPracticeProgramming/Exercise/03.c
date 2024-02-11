@@ -1,10 +1,3 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Exercise 3
- *	About	 	: Sum up 1 to user input using for-loop
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
- 
  int main(void){ 
  	char checkIfContinue = 'y';												// for storing the value if the user runs the program again
 	int userInput = 0;														// for storing the value user inputs to calculate the sum

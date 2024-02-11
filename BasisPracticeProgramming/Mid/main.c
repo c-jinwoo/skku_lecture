@@ -1,10 +1,4 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Midterm
- *	About	 	: Simulation in transmissive diseases
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
- 
+
 #include <stdio.h>
 
 const int MAX_COMPARTMENT = 4;													// Number of data types : 4 (S,E,I,R : uses for array index)

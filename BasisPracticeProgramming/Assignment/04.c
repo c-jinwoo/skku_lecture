@@ -1,10 +1,4 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Assignment 4
- *	About	 	: Currency exchange with function
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
- 
+
 #include <stdio.h>
  
 /**

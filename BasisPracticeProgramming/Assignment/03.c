@@ -1,10 +1,4 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Assignment 3
- *	About	 	: Currency exchange with while-loop and switch statement
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
- 
+
  int main(void){
  	int userSelect = 0;																			// for storing userSelect value(1~5)
 	

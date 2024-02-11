@@ -1,9 +1,3 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Assignment 5
- *	About	 	: random (Sic Bo game)
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
  
 #include <stdio.h>
 #include <stdlib.h>

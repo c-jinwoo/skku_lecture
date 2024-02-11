@@ -1,10 +1,4 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Exercise 7
- *	About	 	: check array by passing by reference
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
- 
+
 #include <stdio.h>
 #include <time.h>
 #define SIZE 15

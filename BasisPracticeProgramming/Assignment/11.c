@@ -1,10 +1,3 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Assignment 11
- *	About	 	: read and write w/read in binary
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
-
 #include <stdio.h>
 #define SIZE 20
 

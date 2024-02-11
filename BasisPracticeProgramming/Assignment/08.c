@@ -1,9 +1,3 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Assignment 8
- *	About	 	: Swapping using Pointer 
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
  
 #include <stdio.h>
 

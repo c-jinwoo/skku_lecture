@@ -1,9 +1,3 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Exercise 11
- *	About	 	: Write Binary Form
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
 
 #include <stdio.h>
 #define SIZE 20

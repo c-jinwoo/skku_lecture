@@ -1,9 +1,3 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Exercise 12
- *	About	 	: Struct with FILE IO
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
 
 #include <stdio.h>
 #define SIZE 80

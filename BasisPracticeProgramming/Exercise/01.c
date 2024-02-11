@@ -1,10 +1,4 @@
-/*
- *	Basic and Practice in Programming
- *	Lab Exercise 1
- *	2020315798 Choi Jin Woo(ÃÖÁø¿ì) 
- *
- */
- 
+
 #include <stdio.h>
 
 int main(void){

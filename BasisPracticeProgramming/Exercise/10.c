@@ -1,9 +1,3 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Exercise 10
- *	About	 	: Password Valid Check with ctype.h
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
 
 #include <stdio.h>
 #include <ctype.h>

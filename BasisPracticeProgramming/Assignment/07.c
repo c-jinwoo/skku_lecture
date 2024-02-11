@@ -1,9 +1,4 @@
-/*
- *	Lecture 	: Basic and Practice in Programming
- *	Content		: Lab Assignment 7
- *	About	 	: search array by passing by reference
- *	Student		: 2020315798 Choi Jin Woo(ÃÖÁø¿ì)
- */
+
  
 #include <stdio.h>
 #include <time.h>
